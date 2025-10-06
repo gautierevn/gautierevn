@@ -4,19 +4,179 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <style>
+      :root {
+        color-scheme: light;
+      }
+
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        background: #f6f3ed;
+        color: #1f1f1f;
+        line-height: 1.7;
+        text-rendering: optimizeLegibility;
+      }
+
+      a {
+        color: #2856b6;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      a:hover {
+        color: #1c3f83;
+        text-decoration: underline;
+      }
+
+      header {
+        padding: 2.5rem 1rem 1.5rem;
+        text-align: center;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 1.8rem;
+        letter-spacing: -0.02em;
+      }
+
+      header p {
+        margin: 0.75rem auto 0;
+        color: #5f5b55;
+        max-width: 540px;
+        font-size: 0.98rem;
+      }
+
+      main {
+        width: min(720px, calc(100% - 2rem));
+        margin: 0 auto 4rem;
+      }
+
+      footer {
+        padding: 1.75rem 1rem 2.5rem;
+        text-align: center;
+        color: #7b756d;
+        font-size: 0.85rem;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 1.5rem auto;
+        border-radius: 12px;
+      }
+
+      pre {
+        background: rgba(26, 26, 26, 0.05);
+        padding: 1rem;
+        border-radius: 12px;
+        overflow-x: auto;
+      }
+
+      code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        font-size: 0.95em;
+      }
+
+      blockquote {
+        border-left: 3px solid rgba(40, 86, 182, 0.35);
+        margin: 1.5rem 0;
+        padding-left: 1rem;
+        color: #5f5b55;
+      }
+
+      .post {
+        margin-bottom: 3.5rem;
+      }
+
+      .post-header h1 {
+        margin: 0 0 0.5rem;
+        font-size: 2.1rem;
+        letter-spacing: -0.015em;
+      }
+
+      .post-meta {
+        color: #6d675f;
+        font-size: 0.92rem;
+      }
+
+      .post-content p:first-of-type {
+        margin-top: 0;
+      }
+
+      .post-nav {
+        margin-top: 3rem;
+      }
+
+      .post-nav a {
+        font-weight: 500;
+      }
+
+      .post-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .post-list li {
+        padding: 1.5rem 0;
+        border-bottom: 1px solid rgba(31, 31, 31, 0.08);
+      }
+
+      .post-list li:last-child {
+        border-bottom: none;
+      }
+
+      .post-list h2 {
+        margin: 0;
+        font-size: 1.45rem;
+        letter-spacing: -0.01em;
+      }
+
+      .post-list .post-meta {
+        margin: 0.45rem 0 0;
+      }
+
+      .post-list p {
+        margin: 0.7rem 0 0;
+        color: #5f5b55;
+      }
+
+      @media (max-width: 540px) {
+        header {
+          padding: 2rem 1rem 1.25rem;
+        }
+
+        header h1 {
+          font-size: 1.6rem;
+        }
+
+        .post-header h1 {
+          font-size: 1.8rem;
+        }
+
+        main {
+          width: min(640px, calc(100% - 1.5rem));
+        }
+      }
+    </style>
   </head>
   <body>
-    <header class="container">
+    <header>
       <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
       <p>{{ site.description }}</p>
     </header>
 
-    <main class="container">
+    <main>
       {{ content }}
     </main>
 
-    <footer class="container">
+    <footer>
       <small>&copy; {{ site.time | date: '%Y' }} {{ site.name }}</small>
     </footer>
   </body>
