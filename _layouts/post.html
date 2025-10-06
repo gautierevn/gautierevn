@@ -8,6 +8,18 @@ layout: default
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %-d, %Y' }}</time>
       {% if page.author %} · {{ page.author }}{% endif %}
     </p>
+    {% if page.tags %}
+    <ul class="post-tags">
+      {% for tag in page.tags %}
+        {% assign display = tag %}
+        {% if tag contains ':' %}
+          {% assign parts = tag | split: ':' %}
+          {% assign display = parts[1] %}
+        {% endif %}
+        <li>{{ display }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
   </header>
 
   <section class="post-content">

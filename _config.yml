@@ -1,7 +1,7 @@
-title: Gautier Evennou adad
+title: Gautier Evennou
 description: PhD blog on computer vision and academic life.
 baseurl: "/gautierevn"
-url: "https://gautierevn.github.io"
+url: "http://127.0.0.1:4000"
 name: PhD blog
 markdown: kramdown
 theme: minima

@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Home · Gautier Evennou</title>
+    <link rel="icon" type="image/svg+xml" href="/gautierevn/assets/images/gpu-favicon_v2.svg">
+    <title>Home - Gautier Evennou</title>
     <style>
       :root {
         color-scheme: light;
@@ -33,20 +34,33 @@
         text-decoration: underline;
       }
 
-      body {
+      
+
+      header {
+        padding: 2.25rem clamp(1rem, 4vw, 3rem);
+        border-bottom: 1px solid rgba(31, 31, 31, 0.07);
         background: #fbf7f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 1rem;
+        flex-wrap: wrap;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+
+      header h1,
+      header .site-tagline {
+        margin: 0;
       }
 
       header {
         padding: 2.25rem clamp(1rem, 4vw, 3rem);
         border-bottom: 1px solid rgba(31, 31, 31, 0.07);
         background: #fbf7f0;
-      }
-
-      .site-identity {
         display: flex;
-        align-items: baseline;
         justify-content: space-between;
+        align-items: baseline;
         gap: 1rem;
         flex-wrap: wrap;
         max-width: 960px;
@@ -61,14 +75,14 @@
         color: #1f3f9a;
       }
 
-      .site-tagline {
+      header .site-tagline {
         margin: 0;
         color: #615b54;
         font-size: 0.95rem;
       }
 
       main {
-        width: min(760px, calc(100% - 3rem));
+        width: min(780px, calc(100% - 3rem));
         margin: 0 auto 4rem;
         padding: 0 clamp(0.75rem, 4vw, 1.5rem);
       }
@@ -109,17 +123,38 @@
 
       .post {
         margin-bottom: 3.5rem;
+        background: inherit;
+        padding: 0;
+        box-shadow: none;
+        border: none;
       }
 
       .post-header h1 {
         margin: 0 0 0.5rem;
-        font-size: 2.1rem;
+        font-size: 1.85rem;
         letter-spacing: -0.015em;
       }
 
       .post-meta {
         color: #6d675f;
         font-size: 0.92rem;
+      }
+
+      .post-tags {
+        list-style: none;
+        margin: 0.6rem 0 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .post-tags li {
+        background: rgba(40, 86, 182, 0.12);
+        color: #1f3f9a;
+        font-size: 0.82rem;
+        padding: 0.2rem 0.6rem;
+        border-radius: 999px;
       }
 
       .post-content p:first-of-type {
@@ -143,6 +178,7 @@
       .post-list li {
         padding: 1.6rem 0;
         border-bottom: 1px solid rgba(31, 31, 31, 0.08);
+        background: inherit;
       }
 
       .post-list h2 {
@@ -165,29 +201,49 @@
       }
 
       .hero {
-        margin: 3rem 0 2.5rem;
+        margin: 3.5rem 0 2.5rem;
       }
 
-      .hero-content {
-        max-width: 660px;
+      .hero-kicker {
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: #5b71c7;
+        margin-bottom: 0.75rem;
+        display: inline-block;
       }
 
       .hero h1 {
-        font-size: clamp(2.2rem, 4vw, 2.8rem);
-        margin-bottom: 0.35rem;
+        font-size: clamp(2.25rem, 4vw, 2.9rem);
+        margin-bottom: 0.4rem;
         letter-spacing: -0.02em;
       }
 
-      .hero-lead {
-        font-size: 1.18rem;
-        margin: 0 0 0.75rem;
-        color: #2b2926;
+      .hero-summary {
+        font-size: 1.1rem;
+        color: #3a3530;
+        margin: 0;
       }
 
-      .hero-subtext {
-        color: #6c635a;
-        margin: 0;
-        line-height: 1.6;
+      .about {
+        margin: 0 0 3.5rem;
+      }
+
+      .about-layout {
+        display: grid;
+        gap: clamp(1.8rem, 5vw, 3.2rem);
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+        align-items: start;
+      }
+
+      .about-summary h2 {
+        margin: 0 0 1rem;
+        font-size: 1.45rem;
+      }
+
+      .about-summary p {
+        margin: 0 0 1rem;
+        color: #3e3a35;
       }
 
       .post-links {
@@ -232,23 +288,39 @@
         .post-links {
           gap: 0.75rem;
         }
+
+        .hero {
+          margin: 3rem 0 2rem;
+        }
+
+        .about-layout {
+          grid-template-columns: 1fr;
+        }
+
       }
     </style>
   </head>
   <body>
     <header>
-      <div class="site-identity">
-        <h1><a href="/gautierevn/">Gautier Evennou</a></h1>
-        <p class="site-tagline">PhD blog on computer vision and academic life.</p>
-      </div>
+      <h1><a href="/gautierevn/">Gautier Evennou</a></h1>
+      <p class="site-tagline">PhD blog on computer vision and academic life.</p>
     </header>
 
     <main>
       <section class="hero" aria-label="About Gautier Evennou">
   <div class="hero-content">
-    <h1>Gautier Evennou</h1>
-    <p class="hero-lead">PhD candidate exploring image forensics, synthetic data, and trustworthy vision models.</p>
-    <p class="hero-subtext">I study how edits reshape visual stories with vision-language models and efficient fine-tuning.</p>
+    <span class="hero-kicker">PhD student | IMATAG &amp; IRISA / Inria Rennes</span>    <p class="hero-summary">PhD candidate exploring image forensics, synthetic data, and trustworthy vision models.</p>
+  </div>
+</section>
+
+<section class="about" aria-label="Researcher profile">
+  <div class="about-layout">
+    <article class="about-summary">
+      <h2>About me</h2>
+      <p>I am a PhD student working jointly with IMATAG and the Linkmedia team at IRISA / Inria Rennes. My research traces and explains manipulations in multimedia data.</p>
+      <p>I work with large vision-language models, image watermarking pipelines, and lightweight text autoencoders. The common thread is making edits explainable so creators and platforms can offer verifiable media.</p>
+      <p>I am advised by Vivien Chappelier and Ewa Kijak. Before my PhD I studied digital imaging engineering at Ecole Superieure d'Ingenieurs de Rennes.</p>
+    </article>
   </div>
 </section>
 
@@ -258,11 +330,18 @@
       
         <li>
           <article>
-            <h2><a href="/gautierevn/2025/10/06/welcome-to-the-blog.html">WACV 2025</a></h2>
+            <h2><a href="/gautierevn/2025/10/06/welcome-to-the-blog.html">Reframing Image Difference Captioning with BLIP2IDC and Synthetic Augmentation</a></h2>
             <p class="post-meta">
               <time datetime="2025-10-06T00:00:00+02:00">October 6, 2025</time>
-               - Gautier Evennou
+               - Gautier Evennou, Antoine Chaffin, Vivien Chappelier, and Ewa Kijak
             </p>
+            
+              
+              
+              
+            <p class="post-conference">IEEE WACV 2025</p>
+              
+            
             
               <p>Reframing Image Difference Captioning with BLIP2IDC and Synthetic Augmentation.</p>
             
@@ -289,8 +368,15 @@
             <h2><a href="/gautierevn/2024/07/15/swift-semantic-watermarking.html">SWIFT: Semantic Watermarking for Image Forgery Thwarting</a></h2>
             <p class="post-meta">
               <time datetime="2024-07-15T00:00:00+02:00">July 15, 2024</time>
-               - Gautier Evennou
+               - Gautier Evennou, Vivien Chappelier and Ewa Kijak
             </p>
+            
+              
+              
+              
+            <p class="post-conference">IEEE WIFS 2024</p>
+              
+            
             
               <p>Watermark semantic edits so detectors can flag tampered images without hurting clean media.</p>
             
@@ -323,3 +409,10 @@
     </footer>
   </body>
 </html>
+
+
+
+
+
+
+

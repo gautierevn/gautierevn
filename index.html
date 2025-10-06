@@ -5,9 +5,18 @@ title: Home
 
 <section class="hero" aria-label="About Gautier Evennou">
   <div class="hero-content">
-    <h1>Gautier Evennou</h1>
-    <p class="hero-lead">PhD candidate exploring image forensics, synthetic data, and trustworthy vision models.</p>
-    <p class="hero-subtext">I study how edits reshape visual stories with vision-language models and efficient fine-tuning.</p>
+    <span class="hero-kicker">PhD student | IMATAG &amp; IRISA / Inria Rennes</span>    <p class="hero-summary">PhD candidate exploring image forensics, synthetic data, and trustworthy vision models.</p>
+  </div>
+</section>
+
+<section class="about" aria-label="Researcher profile">
+  <div class="about-layout">
+    <article class="about-summary">
+      <h2>About me</h2>
+      <p>I am a PhD student working jointly with IMATAG and the Linkmedia team at IRISA / Inria Rennes. My research traces and explains manipulations in multimedia data.</p>
+      <p>I work with large vision-language models, image watermarking pipelines, and lightweight text autoencoders. The common thread is making edits explainable so creators and platforms can offer verifiable media.</p>
+      <p>I am advised by Vivien Chappelier and Ewa Kijak. Before my PhD I studied digital imaging engineering at Ecole Superieure d'Ingenieurs de Rennes.</p>
+    </article>
   </div>
 </section>
 
@@ -22,6 +31,18 @@ title: Home
               <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%B %-d, %Y' }}</time>
               {% if post.author %} - {{ post.author }}{% endif %}
             </p>
+            {% if post.tags %}
+              {% assign post_conference = '' %}
+              {% for tag in post.tags %}
+                {% if tag contains 'conference:' %}
+                  {% assign parts = tag | split: ':' %}
+                  {% assign post_conference = parts[1] %}
+                {% endif %}
+              {% endfor %}
+              {% if post_conference != '' %}
+            <p class="post-conference">{{ post_conference }}</p>
+              {% endif %}
+            {% endif %}
             {% if post.excerpt %}
               <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
             {% endif %}
