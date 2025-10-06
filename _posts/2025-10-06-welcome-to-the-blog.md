@@ -3,6 +3,8 @@ layout: post
 title: "WACV 2025"
 author: Gautier Evennou
 excerpt: "Reframing Image Difference Captioning with BLIP2IDC and Synthetic Augmentation."
+paper_url: https://arxiv.org/abs/2412.15939
+code_url: https://github.com/gautierevn/BLIP2IDC
 ---
 
 # WACV 2025
@@ -18,8 +20,6 @@ I work on semantic alteration in multimedia content (whatever this is), and we w
 ![InstructPix2Pix, Learning to Follow Image Editing Instructions, Tim Brooks et. al 2022]({{ "/assets/images/ip2p_mainframe.jpeg" | relative_url }})
 
 InstructPix2Pix, Learning to Follow Image Editing Instructions, Tim Brooks et. al 2022
-
-[IP2P image, showcase variation in images]
 
 With this fresh idea in my mind, we started to think about how to compare images. The most streamlined way of doing this is to take two images independently, extract their respective features and then somehow merge them so that a decoder output a “difference caption”. We saw that this was rather standard in IDC and Change Captioning. Then, we picked BLIP2, state-of-the-art image captioning model that was trained with synthetic data to generate better caption.
 

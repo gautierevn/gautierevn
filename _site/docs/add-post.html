@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+    <title>Adding a Blog Post · Gautier Evennou</title>
     <style>
       :root {
         color-scheme: light;
@@ -238,17 +238,55 @@
   <body>
     <header>
       <div class="site-identity">
-        <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-        <p class="site-tagline">{{ site.description }}</p>
+        <h1><a href="/gautierevn/">Gautier Evennou</a></h1>
+        <p class="site-tagline">PhD blog on computer vision and academic life.</p>
       </div>
     </header>
 
     <main>
-      {{ content }}
+      <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Adding a Blog Post</h1>
+  </header>
+
+  <div class="post-content">
+    <h1 id="adding-a-blog-post">Adding a Blog Post</h1>
+
+<ol>
+  <li>Choose a publish date and slug, then create a markdown file under <code class="language-plaintext highlighter-rouge">_posts/</code> named <code class="language-plaintext highlighter-rouge">YYYY-MM-DD-short-title.md</code>.</li>
+  <li>Paste the front matter template below at the top of the file and edit the fields:</li>
+</ol>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Your</span><span class="nv"> </span><span class="s">Post</span><span class="nv"> </span><span class="s">Title"</span>
+<span class="na">author</span><span class="pi">:</span> <span class="s">Gautier Evennou</span>
+<span class="na">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">One</span><span class="nv"> </span><span class="s">sentence</span><span class="nv"> </span><span class="s">teaser</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">home</span><span class="nv"> </span><span class="s">page."</span>
+<span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">vision</span><span class="pi">,</span> <span class="nv">synthetic-data</span><span class="pi">]</span>
+<span class="na">paper_url</span><span class="pi">:</span> <span class="s">https://arxiv.org/abs/your-paper</span>
+<span class="na">code_url</span><span class="pi">:</span> <span class="s">https://github.com/your_repo</span>
+<span class="c1"># date: 2025-10-06 # optional override if the filename date is not the publish date</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Write the post content in Markdown underneath the front matter. Use standard Markdown for headings, lists, code, etc.</li>
+  <li>Place images in <code class="language-plaintext highlighter-rouge">assets/images/</code> (create subfolders if helpful) and reference them with <code class="language-plaintext highlighter-rouge">![Alt text](/gautierevn/assets/images/your-image.png)</code>.</li>
+  <li>Preview locally with <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve --livereload</code> and visit <code class="language-plaintext highlighter-rouge">http://localhost:4000</code> to check the post.</li>
+  <li>Commit the new post and any assets, then push to publish.</li>
+</ol>
+
+<p>Tip: if you want the post to stay in draft locally, move it to <code class="language-plaintext highlighter-rouge">_drafts/</code> (create the folder if missing). Jekyll will ignore drafts unless you run <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve --livereload --drafts</code>.</p>
+
+  </div>
+
+</article>
+
     </main>
 
     <footer>
-      <small>&copy; {{ site.time | date: '%Y' }} {{ site.name }}</small>
+      <small>&copy; 2025 PhD blog</small>
     </footer>
   </body>
 </html>

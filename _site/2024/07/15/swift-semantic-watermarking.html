@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+    <title>SWIFT: Semantic Watermarking for Image Forgery Thwarting · Gautier Evennou</title>
     <style>
       :root {
         color-scheme: light;
@@ -238,17 +238,59 @@
   <body>
     <header>
       <div class="site-identity">
-        <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-        <p class="site-tagline">{{ site.description }}</p>
+        <h1><a href="/gautierevn/">Gautier Evennou</a></h1>
+        <p class="site-tagline">PhD blog on computer vision and academic life.</p>
       </div>
     </header>
 
     <main>
-      {{ content }}
+      <article class="post">
+  <header class="post-header">
+    <h1>SWIFT: Semantic Watermarking for Image Forgery Thwarting</h1>
+    <p class="post-meta">
+      <time datetime="2024-07-15T00:00:00+02:00">July 15, 2024</time>
+       · Gautier Evennou
+    </p>
+  </header>
+
+  <section class="post-content">
+    <h2 id="tldr">TL;DR</h2>
+
+<ul>
+  <li>Embed a semantic watermark during editing so post-hoc detectors can localize tampering.</li>
+  <li>Keep perceptual quality intact on pristine assets by injecting the signal only when an edit happens.</li>
+  <li>Release an open pipeline (paper + code) to reproduce benchmarks and ablations.</li>
+</ul>
+
+<h2 id="why-swift">Why SWIFT?</h2>
+
+<p>Semantic alteration is now cheap, but most forensic tools struggle to tell genuine stories from fabricated ones. Rather than guessing after the fact, SWIFT (Semantic Watermarking for Image Forgery Thwarting) nudges the generator to stamp an editable image with an imperceptible yet verifiable signal. The idea is simple: if we cooperate with the editing network, downstream auditors can later check authenticity without needing the original asset.</p>
+
+<h2 id="how-it-works">How it works</h2>
+
+<ol>
+  <li><strong>Watermark guidance</strong> — while editing an image, we optimize a frequency-aware watermark loss so the edit carries a semantic signature.</li>
+  <li><strong>Tamper localization</strong> — a lightweight detector recovers the watermark and highlights which pixels were modified.</li>
+  <li><strong>Integrity switch</strong> — if an image is untouched, we skip the watermark step, so there is no quality hit on clean content.</li>
+</ol>
+
+<p>The repository includes training scripts, evaluation notebooks, and ablation studies on robustness against compression, resizing, and intentional removal attempts.</p>
+
+<h2 id="whats-next">What’s next</h2>
+
+<p>We are exploring how SWIFT pairs with generative provenance systems, and whether similar signals can travel across video timelines. Feedback and pull requests are welcome—grab the code, run the benchmarks, and let me know where to improve.</p>
+
+  </section>
+
+  <nav class="post-nav">
+    <a href="/gautierevn/">← Back to all posts</a>
+  </nav>
+</article>
+
     </main>
 
     <footer>
-      <small>&copy; {{ site.time | date: '%Y' }} {{ site.name }}</small>
+      <small>&copy; 2025 PhD blog</small>
     </footer>
   </body>
 </html>

@@ -1,4 +1,4 @@
-title: Gautier Evennou 
+title: Gautier Evennou adad
 description: PhD blog on computer vision and academic life.
 baseurl: "/gautierevn"
 url: "https://gautierevn.github.io"
@@ -7,3 +7,5 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
