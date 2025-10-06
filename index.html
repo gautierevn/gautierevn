@@ -1,0 +1,27 @@
+---
+layout: default
+title: Home
+---
+
+<section aria-label="Recent blog posts">
+  {% if site.posts.size > 0 %}
+    <ul>
+      {% for post in site.posts %}
+        <li>
+          <article>
+            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+            <p>
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%B %-d, %Y' }}</time>
+              {% if post.author %} · {{ post.author }}{% endif %}
+            </p>
+            {% if post.excerpt %}
+              <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
+            {% endif %}
+          </article>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No posts yet. Add markdown files under <code>_posts/</code> to publish your first article.</p>
+  {% endif %}
+</section>
