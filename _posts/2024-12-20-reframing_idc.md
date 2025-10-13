@@ -2,11 +2,13 @@
 layout: post
 title: "Reframing Image Difference Captioning with BLIP2IDC and Synthetic Augmentation"
 author: Gautier Evennou, Antoine Chaffin, Vivien Chappelier, and Ewa Kijak
-excerpt: "Reframing Image Difference Captioning with BLIP2IDC and Synthetic Augmentation."
+excerpt: "Using VLM and synthetic data to improve Image Difference Captioning"
 paper_url: https://arxiv.org/abs/2412.15939
 code_url: https://github.com/gautierevn/BLIP2IDC
+thumbnail: /assets/images/thumbnails/reframing_idc_thumbnail.png
 tags:
   - conference:IEEE WACV 2025
+  - presentation:Oral
 ---
 
 Oral Paper Round 1 Acceptance (for those who track such things)

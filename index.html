@@ -13,7 +13,7 @@ title: Home
   <div class="about-layout">
     <article class="about-summary">
       <h2>About me</h2>
-      <p>I am a PhD student working jointly with IMATAG and the Artishau team at IRISA / Inria Rennes. My research traces and explains manipulations in multimedia data.</p>
+      <p> Hi! My name is Gautier Evennou and I am currently a PhD student working jointly with IMATAG and the Artishau team at IRISA/Inria Rennes. Humbly trying to save the world with my pixels machines.</p>
     </article>
   </div>
 </section>
@@ -29,17 +29,28 @@ title: Home
               <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%B %-d, %Y' }}</time>
               {% if post.author %} - {{ post.author }}{% endif %}
             </p>
+            {% assign post_conference = '' %}
+            {% assign post_presentation = '' %}
             {% if post.tags %}
-              {% assign post_conference = '' %}
               {% for tag in post.tags %}
                 {% if tag contains 'conference:' %}
                   {% assign parts = tag | split: ':' %}
-                  {% assign post_conference = parts[1] %}
+                  {% assign post_conference = parts[1] | strip %}
+                {% elsif tag contains 'presentation:' %}
+                  {% assign parts = tag | split: ':' %}
+                  {% assign post_presentation = parts[1] | strip %}
                 {% endif %}
               {% endfor %}
+            {% endif %}
+            {% if post_conference != '' or post_presentation != '' %}
+            <div class="post-badges">
               {% if post_conference != '' %}
-            <p class="post-conference">{{ post_conference }}</p>
+              <span class="post-badge post-badge--conference">{{ post_conference }}</span>
               {% endif %}
+              {% if post_presentation != '' %}
+              <span class="post-badge post-badge--presentation">{{ post_presentation }}</span>
+              {% endif %}
+            </div>
             {% endif %}
             {% if post.excerpt %}
               <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
@@ -69,4 +80,12 @@ title: Home
   {% else %}
     <p>No posts yet. Add markdown files under <code>_posts/</code> to publish your first article.</p>
   {% endif %}
+</section>
+
+<section class="services services--footer" aria-label="Professional service">
+  <h2>Service</h2>
+  <ul class="service-list">
+    <li>Reviewer at ACL 2026</li>
+    <li>Reviewer at AAAI 2026</li>
+  </ul>
 </section>

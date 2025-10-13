@@ -176,9 +176,47 @@
       }
 
       .post-list li {
-        padding: 1.6rem 0;
+        padding: 1.1rem 0;
         border-bottom: 1px solid rgba(31, 31, 31, 0.08);
         background: inherit;
+      }
+
+      .post-card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+      }
+
+      .post-card-body {
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+      }
+
+      .post-thumbnail-link {
+        display: block;
+        width: 100%;
+        max-width: 380px;
+        align-self: flex-start;
+        border-radius: 1rem;
+        overflow: hidden;
+        background: #f2f0eb;
+        padding: 0.12rem;
+        aspect-ratio: 16 / 9;
+        margin: 0.12rem 0 0;
+      }
+
+      .post-thumbnail {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+        transition: transform 0.25s ease;
+      }
+
+      .post-thumbnail-link:hover .post-thumbnail,
+      .post-thumbnail-link:focus-visible .post-thumbnail {
+        transform: scale(1.03);
       }
 
       .post-list h2 {
@@ -188,11 +226,11 @@
       }
 
       .post-list .post-meta {
-        margin: 0.45rem 0 0;
+        margin: 0.3rem 0 0;
       }
 
       .post-list p {
-        margin: 0.7rem 0 0;
+        margin: 0.35rem 0 0;
         color: #5f5b55;
       }
 
@@ -226,7 +264,7 @@
       }
 
       .about {
-        margin: 0 0 3.5rem;
+        margin: 2.5rem 0 3.5rem;
       }
 
       .about-layout {
@@ -246,6 +284,129 @@
         color: #3e3a35;
       }
 
+      .social-dock {
+        position: fixed;
+        left: clamp(0.5rem, 3vw, 2.5rem);
+        top: clamp(9rem, 20vh, 12rem);
+        transform: none;
+        z-index: 50;
+      }
+
+      .social-dock::before {
+        content: '';
+        position: absolute;
+        left: 0.8rem;
+        top: 0;
+        bottom: -2.2rem;
+        width: 2px;
+        background: linear-gradient(180deg, transparent 0%, rgba(135, 121, 106, 0.4) 12%, rgba(135, 121, 106, 0.4) 88%, transparent 100%);
+      }
+
+      .social-dock-intro {
+        padding-left: 1.6rem;
+        margin: 0 0 1.9rem;
+        max-width: 15rem;
+      }
+
+      .social-dock-intro .hero-kicker {
+        display: block;
+        margin: 0 0 0.45rem;
+        font-size: 0.82rem;
+      }
+
+      .social-dock-intro .hero-summary {
+        font-size: 0.95rem;
+        color: #3a3530;
+        margin: 0;
+        line-height: 1.55;
+      }
+
+      .social-dock ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+      }
+
+      .social-dock li {
+        position: relative;
+        padding-left: 1.6rem;
+        margin: 0;
+      }
+
+      .social-dock li::before {
+        content: '';
+        position: absolute;
+        left: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 50%;
+        background: #d8cec0;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      }
+
+      .social-dock a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 0.78rem;
+        font-weight: 500;
+        color: #3b342d;
+        text-decoration: none;
+        transition: color 0.2s ease, transform 0.2s ease;
+      }
+
+      .social-dock a span {
+        opacity: 0.75;
+      }
+
+      .social-dock a:hover,
+      .social-dock a:focus-visible {
+        color: #1f1a15;
+        transform: translateX(2px);
+      }
+
+      .social-icon {
+        width: 0.95rem;
+        height: 0.95rem;
+        fill: currentColor;
+        flex-shrink: 0;
+      }
+
+      .services {
+        margin: 4rem 0 0;
+        padding-top: 2rem;
+        border-top: 1px solid #e7ded1;
+        text-align: center;
+      }
+
+      .services h2 {
+        margin: 0 0 0.35rem;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #827567;
+      }
+
+      .service-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: inline-flex;
+        gap: 1.1rem;
+        flex-wrap: wrap;
+        font-size: 0.82rem;
+        color: #6d6358;
+      }
+
+      .service-list li {
+        opacity: 0.8;
+      }
+
       .post-links {
         display: inline-flex;
         align-items: center;
@@ -260,6 +421,35 @@
         gap: 0.4rem;
         text-decoration: underline;
         color: inherit;
+      }
+
+      .post-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 0.4rem 0;
+      }
+
+      .post-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.08rem 0.55rem;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        text-transform: none;
+        color: inherit;
+        background: transparent;
+        border: 1px solid rgba(34, 31, 27, 0.18);
+      }
+
+      .post-badge--conference {
+        border-color: rgba(95, 72, 34, 0.3);
+      }
+
+      .post-badge--presentation {
+        border-color: rgba(40, 74, 110, 0.25);
       }
 
       .post-links .code-icon {
@@ -303,6 +493,14 @@
           grid-template-columns: 1fr;
         }
 
+        .post-thumbnail-link {
+          max-width: 100%;
+        }
+
+        .social-dock {
+          display: none;
+        }
+
       }
     </style>
   </head>
@@ -311,6 +509,45 @@
       <h1><a href="/gautierevn/">Gautier Evennou</a></h1>
       <p class="site-tagline">PhD blog on computer vision and academic life.</p>
     </header>
+
+    <nav class="social-dock" aria-label="Social links">
+      
+      <ul>
+        <li>
+          <a href="https://scholar.google.com/citations?hl=fr&view_op=list_works&gmla=AH8HC4zwd-WIMzJDZQidFqXCClQL4cazAwhy6JAmn7hu6BihoQhrrxbn7QKhwhDQRH9I4dI97D02ZuWxcwpqTR7rM5aEn5G-LCERVV5l_HXfUvjfS0IT4boMEA&user=4OYrpXUAAAAJ" rel="noopener noreferrer" target="_blank" aria-label="Google Scholar">
+            <svg class="social-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path d="M12 3 2 8l10 5 10-5-10-5Z" />
+              <path d="M6 11.5v3.1c0 2.27 3.02 3.9 6 3.9s6-1.63 6-3.9v-3.1l-6 2.7-6-2.7Z" />
+            </svg>
+            <span>Google Scholar</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/gautierevn" rel="noopener noreferrer" target="_blank" aria-label="GitHub">
+            <svg class="social-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.41 7.86 10.94.58.1.79-.25.79-.56v-2.17c-3.2.7-3.87-1.37-3.87-1.37-.53-1.36-1.28-1.72-1.28-1.72-1.04-.71.08-.69.08-.69 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.72-1.55-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.46-2.28 1.2-3.08-.12-.29-.52-1.43.11-2.98 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.55.23 2.69.11 2.98.75.8 1.2 1.82 1.2 3.08 0 4.43-2.71 5.41-5.29 5.69.41.35.77 1.05.77 2.12v3.14c0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.36.5 12 .5Z" />
+            </svg>
+            <span>GitHub</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://x.com/Gautier_Evennou" rel="noopener noreferrer" target="_blank" aria-label="X (Twitter)">
+            <svg class="social-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path d="M3 3h4.9l5.5 7.5L18.4 3H21l-6.8 9.4L21 21h-4.9l-6-8.2L5.5 21H3l7-9.6L3 3Z" />
+            </svg>
+            <span>X / Twitter</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/gautier-evennou" rel="noopener noreferrer" target="_blank" aria-label="LinkedIn">
+            <svg class="social-icon" viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM2 9h6v12H2V9Zm8.5 0H16v1.86c.7-1.3 2.05-2.34 3.93-2.34 3.93 0 4.57 2.57 4.57 5.91V21h-6v-5.26c0-1.25-.02-2.86-1.75-2.86-1.75 0-2.02 1.37-2.02 2.78V21h-6V9Z" />
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
 
     <main>
       <article class="post">
@@ -326,6 +563,10 @@
         
         
         <li>IEEE WIFS 2024</li>
+      
+        
+        
+        <li>Oral</li>
       
         
         
@@ -383,8 +624,3 @@
     </footer>
   </body>
 </html>
-
-
-
-
-

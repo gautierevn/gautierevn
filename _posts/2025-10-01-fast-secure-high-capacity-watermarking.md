@@ -2,9 +2,11 @@
 layout: post
 title: "Fast, Secure, and High-Capacity Image Watermarking with Autoencoded Text Vectors"
 author: Gautier Evennou, Vivien Chappelier, and Ewa Kijak
-excerpt: "Autoencode textual payloads into invisible signals that stay resilient to edits while carrying high-capacity provenance."
+excerpt: "Designing text autoencoders to craft a latent space suitable for secure watermarking "
 paper_url: https://arxiv.org/abs/2510.00799
+thumbnail: /assets/images/thumbnails/fast_secure_thumbnail.png
 tags:
+  - conference:arXiv Preprint
   - watermarking
   - image-forensics
   - robustness

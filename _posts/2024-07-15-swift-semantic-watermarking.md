@@ -5,8 +5,10 @@ author: Gautier Evennou, Vivien Chappelier and Ewa Kijak
 excerpt: "Watermark semantic edits so detectors can flag tampered images without hurting clean media."
 paper_url: https://arxiv.org/abs/2407.18995
 code_url: https://github.com/gautierevn/swift_watermarking
+thumbnail: /assets/images/thumbnails/swift_thumbnail.png
 tags:
   - conference:IEEE WIFS 2024
+  - presentation:Oral
   - watermarking
   - image-forensics
   - reliability
