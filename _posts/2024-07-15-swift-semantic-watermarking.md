@@ -16,22 +16,21 @@ tags:
 
 ## TL;DR
 
-- Embed a semantic watermark during editing so post-hoc detectors can localize tampering.
-- Keep perceptual quality intact on pristine assets by injecting the signal only when an edit happens.
+- Embed a semantic watermark so post-hoc detectors can assert authenticity.
+- Keep perceptual quality intact on pristine assets by injecting the signal imperceptibly.
 - Release an open pipeline (paper + code) to reproduce benchmarks and ablations.
 
 ## Why SWIFT?
 
-Semantic alteration is now cheap, but most forensic tools struggle to tell genuine stories from fabricated ones. Rather than guessing after the fact, SWIFT (Semantic Watermarking for Image Forgery Thwarting) nudges the generator to stamp an editable image with an imperceptible yet verifiable signal. The idea is simple: if we cooperate with the editing network, downstream auditors can later check authenticity without needing the original asset.
+Semantic alteration is now cheap, with image editing leading the charge. Most forensic tools struggle to tell genuine stories from fabricated ones, the best being only able to tell is a specific AI generator was used. Rather than guessing after the fact, SWIFT (Semantic Watermarking for Image Forgery Thwarting) embed the meaning of the image by projecting a caption into an imperceptible yet verifiable signal. The idea is simple: if we know what the image was using the caption, downstream auditors can later check authenticity without needing the original asset.
 
 ## How it works
 
-1. **Watermark guidance** - while editing an image, we optimize a frequency-aware watermark loss so the edit carries a semantic signature.
-2. **Tamper localization** - a lightweight detector recovers the watermark and highlights which pixels were modified.
-3. **Integrity switch** - if an image is untouched, we skip the watermark step, so there is no quality hit on clean content.
+1. **Caption** - a captioning model is responsible for providing a textual description of the image.
+2. **Real Vector watermarking** - Usually, deep-learning based watermarking models embed bits, not real vectors. We chose this path as it enables us to carry more information.
+3. **Confidence Metric** - at the receiving end, a confidence metric is computed to know is the decoded message is close from its perfect representation. This metric is heavily correlated with correctness and ensure the trustworthiness of the watermark.
 
-The repository includes training scripts, evaluation notebooks, and ablation studies on robustness against compression, resizing, and intentional removal attempts.
 
 ## What's next
 
-We are exploring how SWIFT pairs with generative provenance systems, and whether similar signals can travel across video timelines. Feedback and pull requests are welcome - grab the code, run the benchmarks, and let me know where to improve.
+SWIFT was really fun to write as it introduced a new idea in the field of watermarking, using it as a communication channel. But the capacity is rather limited, up to 48 bits and then the interferences from the modulation become to much of a burden. So next work will focus on trying to bypass this modulation that is responsible for projecting bits into a real-valued vector. 
