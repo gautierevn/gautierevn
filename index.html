@@ -13,7 +13,7 @@ title: Home
   <div class="about-layout">
     <article class="about-summary">
       <h2>About me</h2>
-      <p>I am a PhD student working jointly with IMATAG and the A team at IRISA / Inria Rennes. My research traces and explains manipulations in multimedia data.</p>
+      <p>I am a PhD student working jointly with IMATAG and the Artishau team at IRISA / Inria Rennes. My research traces and explains manipulations in multimedia data.</p>
     </article>
   </div>
 </section>
@@ -47,7 +47,10 @@ title: Home
             {% if post.paper_url or post.code_url %}
             <div class="post-links">
               {% if post.paper_url %}
-              <a href="{{ post.paper_url }}">Paper</a>
+              <a class="paper-link" href="{{ post.paper_url }}">
+                <img class="paper-icon" src="{{ '/assets/images/arxiv-logo.svg' | relative_url }}" alt="arXiv logo" />
+                Paper
+              </a>
               {% endif %}
               {% if post.code_url %}
               <a class="code-link" href="{{ post.code_url }}">
